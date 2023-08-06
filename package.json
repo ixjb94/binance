@@ -1,0 +1,26 @@
+{
+	"name": "@ixjb94/binance",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"dist": "node ./dist/index.js",
+		"dev": "npm run build && npm run dist"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ixjb94/binance.git"
+	},
+	"keywords": [
+		"Binance",
+		"binance-connector"
+	],
+	"author": "IX JB",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "*",
+		"typescript": "^5.1.6"
+	}
+}
