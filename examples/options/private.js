@@ -1,15 +1,16 @@
-import { EuOptions } from "../../index.js"
-import { config } from "../../config.js"
+import { EuOptions } from "@ixjb94/binance"
+import { config } from "@ixjb94/binance"
 
 const options = new EuOptions({
     api_key: config.API_KEY,
     api_secret: config.API_SECRET,
 })
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let accountInfo = await options.account()
+    const accountInfo = await options.account()
     console.log(accountInfo)
 
     // ##### Websocket
@@ -33,4 +34,3 @@ async function Run() {
         })
     })
 }
-Run()

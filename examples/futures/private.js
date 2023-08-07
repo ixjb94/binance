@@ -1,15 +1,16 @@
-import { Futures } from "../../index.js"
-import { config } from "../../config.js"
+import { Futures } from "@ixjb94/binance"
+import { config } from "@ixjb94/binance"
 
 const futures = new Futures({
     api_key: config.API_KEY,
     api_secret: config.API_SECRET,
 })
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let accountInfo = await futures.account()
+    const accountInfo = await futures.account()
     console.log(accountInfo)
 
     // ##### Websocket
@@ -33,4 +34,3 @@ async function Run() {
         })
     })
 }
-Run()

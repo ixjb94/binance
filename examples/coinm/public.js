@@ -1,11 +1,12 @@
-import { CoinM } from "../../index.js"
+import { CoinM } from "@ixjb94/binance"
 
 const coin = new CoinM()
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let depth = await coin.depth({
+    const depth = await coin.depth({
         symbol: "BTCUSD_PERP",
         limit: 10,
     })
@@ -26,4 +27,3 @@ async function Run() {
         })
     })
 }
-Run()

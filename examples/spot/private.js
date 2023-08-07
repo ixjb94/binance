@@ -1,15 +1,16 @@
-import { Spot } from "../../index.js"
-import { config } from "../../config.js"
+import { Spot } from "@ixjb94/binance"
+import { config } from "@ixjb94/binance"
 
 const spot = new Spot({
     api_key: config.API_KEY,
     api_secret: config.API_SECRET,
 })
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let accountInfo = await spot.account()
+    const accountInfo = await spot.account()
     console.log(accountInfo)
 
     // ##### Websocket
@@ -35,4 +36,3 @@ async function Run() {
         })
     })
 }
-Run()

@@ -1,11 +1,12 @@
-import { Spot } from "../../index.js"
+import { Spot } from "@ixjb94/binance"
 
 const spot = new Spot()
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let depth = await spot.depth({
+    const depth = await spot.depth({
         symbol: "BTCUSDT",
         limit: 10,
     })
@@ -26,4 +27,3 @@ async function Run() {
         })
     })
 }
-Run()

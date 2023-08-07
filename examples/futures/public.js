@@ -1,11 +1,12 @@
-import { Futures } from "../../index.js"
+import { Futures } from "@ixjb94/binance"
 
 const futures = new Futures()
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let depth = await futures.depth({
+    const depth = await futures.depth({
         symbol: "BTCUSDT",
         limit: 10,
     })
@@ -26,4 +27,3 @@ async function Run() {
         })
     })
 }
-Run()

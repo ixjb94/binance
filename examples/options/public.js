@@ -1,11 +1,12 @@
-import { EuOptions } from "../../index.js"
+import { EuOptions } from "@ixjb94/binance"
 
 const options = new EuOptions()
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let depth = await options.depth({
+    const depth = await options.depth({
         symbol: "BTCUSDT",
         limit: 10,
     })
@@ -26,4 +27,3 @@ async function Run() {
         })
     })
 }
-Run()

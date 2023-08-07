@@ -1,6 +1,6 @@
-import { BlvtStream } from "../index.js"
+import { BlvtStream } from "@ixjb94/binance"
 
-let blvt = new BlvtStream()
+const blvt = new BlvtStream()
 
 blvt.ws.subscribe(["BTCDOWN@nav_kline_1m"], 1)
 

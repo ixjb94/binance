@@ -1,15 +1,16 @@
-import { CoinM } from "../../index.js"
-import { config } from "../../config.js"
+import { CoinM } from "@ixjb94/binance"
+import { config } from "@ixjb94/binance"
 
 const coin = new CoinM({
     api_key: config.API_KEY,
     api_secret: config.API_SECRET,
 })
 
+Run()
 async function Run() {
     
     // ##### Rest
-    let accountInfo = await coin.account()
+    const accountInfo = await coin.account()
     console.log(accountInfo)
 
     // ##### Websocket
@@ -33,4 +34,3 @@ async function Run() {
         })
     })
 }
-Run()
