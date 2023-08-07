@@ -21,6 +21,11 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@types/node": "*",
+		"@types/ws": "^8.5.5",
 		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"crypto-js": "^4.1.1",
+		"ws": "^8.13.0"
 	}
 }
