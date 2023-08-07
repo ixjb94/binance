@@ -21,3 +21,10 @@ export interface Headers {
     Accept?: string
     "X-MBX-APIKEY"?: string
 }
+
+export interface Queries {
+    params?: object
+    timestamp?: number,
+    recvWindow?: number,
+    [key: string]: any; // Add index signature
+}

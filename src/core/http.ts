@@ -1,9 +1,6 @@
 import { HmacSHA256 } from "crypto-js"
-import { Headers, HttpConstructor, Method, Params } from "../types/http"
+import { Headers, HttpConstructor, Method, Params, Queries } from "../types/http"
 
-/**
- * @namespace
- */
 export class Http {
 
     api_key?: string
@@ -41,8 +38,7 @@ export class Http {
                 delete params.recvWindow
             }
 
-            // deno-lint-ignore no-explicit-any
-            const queries: any = {
+            const queries: Queries = {
                 ...params,
                 timestamp: this.timestamp,
                 recvWindow,
@@ -101,14 +97,8 @@ export class Http {
             // console.log(body)
             return body
 
-        } catch (error: any) {
-            const errorMessage = {
-                name: error.name,
-                message: error.message,
-                stack: error.stack,
-            }
-
-            return errorMessage
+        } catch (error) {
+            console.log("Error request:", error)
         }
     }
 
