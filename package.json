@@ -15,7 +15,15 @@
 	},
 	"keywords": [
 		"Binance",
-		"binance-connector"
+		"binance-connector",
+		"rest api",
+		"rest",
+		"websocket",
+		"ws",
+		"spot",
+		"futures",
+		"options",
+		"coinm"
 	],
 	"author": "IX JB",
 	"license": "MIT",
