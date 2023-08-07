@@ -2,7 +2,17 @@ import { EventEmitter } from "events"
 import { WebSocket as WsClient } from "ws"
 import { iConstructor } from "../types/websocket"
 
-export class Websocket extends EventEmitter {
+type WsApiOptions = {
+    api_key: string;
+    api_secret: string;
+};
+
+type WS = (socket: WsClient, options: WsApiOptions) => void;
+
+// export class Websocket extends EventEmitter {
+export class Websocket {
+
+    private eventEmitter = new EventEmitter();
 
     // for subscribing
     wsTopics = new Map()
@@ -20,7 +30,7 @@ export class Websocket extends EventEmitter {
 
     constructor(options: iConstructor = {}) {
         try {
-            super()
+            // super()
             this.api_key = options.api_key
             this.api_secret = options.api_secret
             this.wsBaseURL = options.wsBaseURL
@@ -38,26 +48,37 @@ export class Websocket extends EventEmitter {
         }
     }
 
-    // ######################################## Overwrite addListener & on JSDoc
-
-    // @ts-ignore
-    addListener(eventName, callback) {
+    // ######################################## Overwrite addListener
+    /**
+     * @param eventName - example: "USER_DATA" | "DATA" or anything else
+     * @param callback 
+     */
+    addListener(eventName: string, callback: WS) {
         try {
-            super.addListener(eventName, callback)
+            this.eventEmitter.addListener(eventName, callback);
         } catch (error) {
-            console.log("Error addListener:", error)
+            console.log("Error addListener:", error);
         }
     }
 
-    // @ts-ignore
-    on(eventName, callback) {
+    /**
+     * 
+     * @param eventName - example: "USER_DATA" | "DATA" or anything else
+     * @param callback 
+     */
+    on(eventName: string, callback: WS) {
         try {
-            super.on(eventName, callback)
+            this.eventEmitter.on(eventName, callback)
         } catch (error) {
-            console.log("Error On:", error)
+            console.log("Error On:", error);
         }
     }
     // ############################################
+    /**
+     * 
+     * @param ms in milliseconds
+     * @returns 
+     */
     async sleep(ms: number) {
         try {
             return new Promise(resolve => setTimeout(resolve, ms))
@@ -66,6 +87,10 @@ export class Websocket extends EventEmitter {
         }
     }
 
+    /**
+     * 
+     * @param wsID - Example: 311 or 1, etc
+     */
     unsubscribe(wsID: number) {
         try {
             const topic = this.wsTopics.get(wsID)
@@ -88,6 +113,12 @@ export class Websocket extends EventEmitter {
         }
     }
 
+    /**
+     * 
+     * @param params - example: ["btcusdt@kline_1m", "etcusdt@kline_3m"]
+     * @param id - example: 316
+     * @param eventName - example: "BTC" or anything else
+     */
     subscribe(params: string[], id: number, eventName = "DATA") {
 
         try {
@@ -122,7 +153,11 @@ export class Websocket extends EventEmitter {
                     // Add to subscribe list
                     this.wsTopics.set(request.id, { ws, request })
 
-                    this.emit(eventName, ws, {
+                    // this.emit(eventName, ws, {
+                    //     api_key: this.api_key,
+                    //     api_secret: this.api_secret,
+                    // })
+                    this.eventEmitter.emit(eventName, ws, {
                         api_key: this.api_key,
                         api_secret: this.api_secret,
                     })
@@ -156,6 +191,10 @@ export class Websocket extends EventEmitter {
         }
     }
 
+    /**
+     * 
+     * @param path example: "/ws/bnbusdt@aggTrade"
+     */
     disconnect(path: string) {
         try {
             const wsRef = this.wsLists.get(path)
@@ -170,6 +209,11 @@ export class Websocket extends EventEmitter {
         }
     }
 
+    /**
+     * 
+     * @param path example: "/ws/bnbusdt@aggTrade"
+     * @param eventName example: "BTC" or anything else
+     */
     connect(path: string, eventName = "DATA") {
 
         try {
@@ -188,7 +232,11 @@ export class Websocket extends EventEmitter {
                     // Add to connection list
                     this.wsLists.set(path, { ws, eventName })
 
-                    this.emit(eventName, ws, {
+                    // this.emit(eventName, ws, {
+                    //     api_key: this.api_key,
+                    //     api_secret: this.api_secret,
+                    // })
+                    this.eventEmitter.emit(eventName, ws, {
                         api_key: this.api_key,
                         api_secret: this.api_secret,
                     })
@@ -223,6 +271,11 @@ export class Websocket extends EventEmitter {
         }
     }
 
+    /**
+     * 
+     * @param listenKey 
+     * @param eventName example: USER_DATA or anything else
+     */
     async userStream(listenKey: string, eventName: string) {
         try {
             const path = "/ws/" + listenKey
