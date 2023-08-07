@@ -57,7 +57,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-    async ping(params: EUType.EuOptionsPing) {
+    async ping(params?: EUType.EuOptionsPing) {
         return await this.http.publicGET("/eapi/v1/ping", params)
     }
 
@@ -66,7 +66,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-    async time(params: EUType.EuOptionsTime) {
+    async time(params?: EUType.EuOptionsTime) {
         return await this.http.publicGET("/eapi/v1/time", params)
     }
 
@@ -75,7 +75,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-    async exchangeInfo(params: EUType.EuOptionsExchangeInfo) {
+    async exchangeInfo(params?: EUType.EuOptionsExchangeInfo) {
         return await this.http.publicGET("/eapi/v1/exchangeInfo", params)
     }
 
@@ -166,7 +166,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-     async account(params: EUType.EuOptionsAccount) {
+     async account(params?: EUType.EuOptionsAccount) {
         return await this.http.privateGET("/eapi/v1/account", params)
     }
 
@@ -293,7 +293,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-     async marginAccount(params: EUType.EuOptionsMarginAccount) {
+     async marginAccount(params?: EUType.EuOptionsMarginAccount) {
         return await this.http.privateGET("/eapi/v1/marginAccount", params)
     }
     
@@ -357,7 +357,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-     async newListenKey(params: EUType.EuOptionsPostListenKey) {
+     async newListenKey(params?: EUType.EuOptionsPostListenKey) {
         return await this.http.privatePOST("/eapi/v1/listenKey", params)
     }
 
@@ -366,7 +366,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-    async keepAliveListenKey(params: EUType.EuOptionsPutListenKey) {
+    async keepAliveListenKey(params?: EUType.EuOptionsPutListenKey) {
         return await this.http.privatePUT("/eapi/v1/listenKey", params)
     }
 
@@ -375,7 +375,7 @@ export class EuOptions {
      * @param params 
      * @returns 
      */
-    async deleteListenKey(params: EUType.EuOptionsDeleteListenKey) {
+    async deleteListenKey(params?: EUType.EuOptionsDeleteListenKey) {
         return await this.http.privateDELETE("/eapi/v1/listenKey", params)
     }
 }

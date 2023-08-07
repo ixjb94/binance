@@ -57,7 +57,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async ping(params: FType.FuturesJustRecvWindow) {
+    async ping(params?: FType.FuturesJustRecvWindow) {
         return await this.http.publicGET("/fapi/v1/ping", params)
     }
 
@@ -66,7 +66,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async time(params: FType.FuturesJustRecvWindow) {
+    async time(params?: FType.FuturesJustRecvWindow) {
         return await this.http.publicGET("/fapi/v1/time", params)
     }
 
@@ -75,7 +75,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async exchangeInfo(params: FType.FuturesJustRecvWindow) {
+    async exchangeInfo(params?: FType.FuturesJustRecvWindow) {
         return await this.http.publicGET("/fapi/v1/exchangeInfo", params)
     }
 
@@ -292,7 +292,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async positionSideDual(params: FType.FuturesGetPositionSideDual) {
+    async positionSideDual(params?: FType.FuturesGetPositionSideDual) {
         return await this.http.privateGET("/fapi/v1/positionSide/dual", params)
     }
 
@@ -310,7 +310,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async multiAssetsMargin(params: FType.FuturesGetMultiAssetsMargin) {
+    async multiAssetsMargin(params?: FType.FuturesGetMultiAssetsMargin) {
         return await this.http.privateGET("/fapi/v1/multiAssetsMargin", params)
     }
 
@@ -409,7 +409,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async balance(params: FType.FuturesGetBalance) {
+    async balance(params?: FType.FuturesGetBalance) {
         return await this.http.privateGET("/fapi/v2/balance", params)
     }
 
@@ -418,7 +418,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async account(params: FType.FuturesGetAccount) {
+    async account(params?: FType.FuturesGetAccount) {
         return await this.http.privateGET("/fapi/v2/account", params)
     }
 
@@ -553,7 +553,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async newListenKey(params: FType.FuturesPostListenKey) {
+    async newListenKey(params?: FType.FuturesPostListenKey) {
         return await this.http.privatePOST("/fapi/v1/listenKey", params)
     }
 
@@ -562,7 +562,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async keepAliveListenKey(params: FType.FuturesPutListenKey) {
+    async keepAliveListenKey(params?: FType.FuturesPutListenKey) {
         return await this.http.privatePUT("/fapi/v1/listenKey", params)
     }
 
@@ -571,7 +571,7 @@ export class Futures {
      * @param params 
      * @returns 
      */
-    async deleteListenKey(params: FType.FuturesDeleteListenKey) {
+    async deleteListenKey(params?: FType.FuturesDeleteListenKey) {
         return await this.http.privateDELETE("/fapi/v1/listenKey", params)
     }
     // ########################################### Portfolio Margin Endpoints

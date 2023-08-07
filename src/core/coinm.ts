@@ -56,7 +56,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-    async ping(params: CMType.CoinmPing) {
+    async ping(params?: CMType.CoinmPing) {
         return await this.http.publicGET("/dapi/v1/ping", params)
     }
 
@@ -65,7 +65,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-    async time(params: CMType.CoinmTime) {
+    async time(params?: CMType.CoinmTime) {
         return await this.http.publicGET("/dapi/v1/time", params)
     }
 
@@ -74,7 +74,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-    async exchangeInfo(params: CMType.CoinmExchangeInfo) {
+    async exchangeInfo(params?: CMType.CoinmExchangeInfo) {
         return await this.http.publicGET("/dapi/v1/exchangeInfo", params)
     }
 
@@ -271,7 +271,7 @@ export class CoinM {
     /**
      * @param {} [params]
      */
-     async positionSideDual(params: CMType.CoinmPositionSideDual) {
+     async positionSideDual(params?: CMType.CoinmPositionSideDual) {
         return await this.http.privateGET("/dapi/v1/positionSide/dual", params)
     }
 
@@ -397,7 +397,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-     async balance(params: CMType.CoinmBalance) {
+     async balance(params?: CMType.CoinmBalance) {
         return await this.http.privateGET("/dapi/v1/balance", params)
     }
 
@@ -406,7 +406,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-     async account(params: CMType.CoinmAccount) {
+     async account(params?: CMType.CoinmAccount) {
         return await this.http.privateGET("/dapi/v1/account", params)
     }
 
@@ -534,7 +534,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-    async newListenKey(params: CMType.CoinmPostListenKey) {
+    async newListenKey(params?: CMType.CoinmPostListenKey) {
         return await this.http.privatePOST("/dapi/v1/listenKey", params)
     }
 
@@ -543,7 +543,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-    async keepAliveListenKey(params: CMType.CoinmPutListenKey) {
+    async keepAliveListenKey(params?: CMType.CoinmPutListenKey) {
         return await this.http.privatePUT("/dapi/v1/listenKey", params)
     }
 
@@ -552,7 +552,7 @@ export class CoinM {
      * @param params 
      * @returns 
      */
-    async deleteListenKey(params: CMType.CoinmDeleteListenKey) {
+    async deleteListenKey(params?: CMType.CoinmDeleteListenKey) {
         return await this.http.privateDELETE("/dapi/v1/listenKey", params)
     }
 }
