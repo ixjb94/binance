@@ -19,18 +19,22 @@ export class Websocket extends EventEmitter {
     reconnectSleep?: number
 
     constructor(options: iConstructor = {}) {
-        super()
-        this.api_key = options.api_key
-        this.api_secret = options.api_secret
-        this.wsBaseURL = options.wsBaseURL
-        this.wsBaseURLTest = options.wsBaseURLTest
-        this.wsAuthURL = options.wsAuthURL
-        this.isTestNet = options.isTestNet
-        this.reconnectSleep = options.reconnectSleep
+        try {
+            super()
+            this.api_key = options.api_key
+            this.api_secret = options.api_secret
+            this.wsBaseURL = options.wsBaseURL
+            this.wsBaseURLTest = options.wsBaseURLTest
+            this.wsAuthURL = options.wsAuthURL
+            this.isTestNet = options.isTestNet
+            this.reconnectSleep = options.reconnectSleep
 
-        // Default
-        if (!this.reconnectSleep) {
-            this.reconnectSleep = 3000
+            // Default
+            if (!this.reconnectSleep) {
+                this.reconnectSleep = 3000
+            }
+        } catch (error) {
+            console.log("Error constructor:", error)
         }
     }
 
