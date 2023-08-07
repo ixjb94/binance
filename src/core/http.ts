@@ -1,11 +1,10 @@
-import CryptoJS from "crypto-js"
+import { HmacSHA256 } from "crypto-js"
 import { Headers, HttpConstructor, Method, Params } from "../types/http"
 
 /**
  * @namespace
  */
 export class Http {
-    HmacSHA256 = CryptoJS.HmacSHA256
 
     api_key?: string
     api_secret?: string
@@ -73,7 +72,7 @@ export class Http {
             }
 
             if (isPrivate && this.api_secret) {
-                const signature = this.HmacSHA256(
+                const signature = HmacSHA256(
                     queryToString,
                     this.api_secret
                 ).toString()
@@ -102,7 +101,7 @@ export class Http {
             // console.log(body)
             return body
 
-        } catch (error) {
+        } catch (error: any) {
             const errorMessage = {
                 name: error.name,
                 message: error.message,
