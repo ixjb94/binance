@@ -88,7 +88,7 @@ export class Websocket extends EventEmitter {
         }
     }
 
-    subscribe(params: object, id: number, eventName = "DATA") {
+    subscribe(params: string[], id: number, eventName = "DATA") {
 
         try {
             let URL = this.wsBaseURL
