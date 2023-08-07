@@ -50,7 +50,7 @@ export class Websocket {
 
     // ######################################## Overwrite addListener
     /**
-     * @param eventName - example: "USER_DATA" | "DATA" or anything else
+     * @param eventName - example: "BTC" | "USER_DATA" | "DATA" or anything else
      * @param callback 
      */
     addListener(eventName: string, callback: WS) {
