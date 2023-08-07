@@ -33,7 +33,7 @@ Node ^18.0.0 and higher
 
 ### Usage
 ```js
-import { Futures } from "binance"
+import { Futures } from "@ixjb94/binance"
 ```
 
 ### Examples
@@ -44,7 +44,7 @@ import { Futures } from "binance"
 - Rest (Public)
 
 ```js
-import { Futures } from "binance"
+import { Futures } from "@ixjb94/binance"
 
 const myFuture = new Futures({
     isTestNet: true,
@@ -64,7 +64,7 @@ myFuture.klines({
 - Rest (Private)
 
 ```js
-import { Futures } from "binance"
+import { Futures } from "@ixjb94/binance"
 
 const myFuture = new Futures({
     api_key: "MyApiKey",
@@ -87,7 +87,7 @@ myFuture.newOrder({
 - Websocket (Public)
 
 ```js
-import { Futures } from "binance"
+import { Futures } from "@ixjb94/binance"
 
 const myFuture = new Futures({
     isTestNet: true,
@@ -112,7 +112,7 @@ myFuture.ws.addListener("MyMarketData", (socket) => {
 - Websocket (Private)
 
 ```js
-import { Futures } from "binance"
+import { Futures } from "@ixjb94/binance"
 
 const myFuture = new Futures({
     api_key: "MyApiKey",
@@ -163,7 +163,7 @@ so you need to `JSON.parse` them
 example    
 
 ```js
-import { Futures } from "binance"
+import { Futures } from "@ixjb94/binance"
 
 const myFuture = new Futures({
     isTestNet: true,
@@ -195,7 +195,7 @@ you can access them with `.http.` OR `.ws.`
 example    
 
 ```js
-import { Futures } from "binance"
+import { Futures } from "@ixjb94/binance"
 
 const myFuture = new Futures({
     isTestNet: true,
