@@ -199,10 +199,10 @@ export class Websocket extends EventEmitter {
                 try {
                     console.log(`Connection closed for: ${path} - Code: ${code} - Reason: ${reason}`)
 
-                    let wsReference = this.wsLists.get(path)
+                    const wsReference = this.wsLists.get(path)
                     if (wsReference) {
 
-                        let reconnectSleep: number = this.reconnectSleep ?? 3000
+                        const reconnectSleep: number = this.reconnectSleep ?? 3000
 
                         console.log(`Reconnecting after ${reconnectSleep} ms`)
                         this.sleep(reconnectSleep).then(() => {

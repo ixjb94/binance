@@ -40,7 +40,7 @@ export class Spot {
             this.ApiMap.wsBaseURL = "wss://stream.binance.com:9443"
         }
 
-        let OPTIONS = {
+        const OPTIONS = {
             ...options,
             ...this.ApiMap,
             timestamp: this.timestamp,

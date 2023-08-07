@@ -22,11 +22,11 @@ export type EnumSpotTimeInForce = "GTC" | "IOC" | "FOK";
 export type EnumSpotIntervals = "1s" | "1m" | "3m" | "5m" | "15m" | "30m" | "1h" | "2h" | "4h" | "6h" | "8h" | "12h" | "1d" | "3d" | "1w" | "1M";
 export type EnumSpotRateLimitType = "REQUEST_WEIGHT" | "ORDERS" | "RAW_REQUESTS";
 export type EnumSpotRateLimitIntervals = "SECOND" | "MINUTE" | "DAY";
-export type SpotPing = Object
-export type SpotTime = Object
+export type SpotPing = object
+export type SpotTime = object
 export type SpotPostOrderTest = SpotPostOrder
-export type SpotPostListenKeySPOT = Object
-export type SpotPostListenKeyMARGIN = Object
+export type SpotPostListenKeySPOT = object
+export type SpotPostListenKeyMARGIN = object
 
 export interface SpotJustRecvWindow {
   recvWindow?: number;

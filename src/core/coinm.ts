@@ -22,7 +22,7 @@ export class CoinM {
 
     constructor(options: CMType.CoinMConstructor = {}) {
 
-        let OPTIONS = {
+        const OPTIONS = {
             ...options,
             ...this.ApiMap,
             timestamp: this.timestamp,

@@ -23,7 +23,7 @@ export class Futures {
 
     constructor(options: FType.FuturesConstructor = {}) {
 
-        let OPTIONS = {
+        const OPTIONS = {
             ...options,
             ...this.ApiMap,
             timestamp: this.timestamp,

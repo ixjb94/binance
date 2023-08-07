@@ -20,7 +20,7 @@ export class BlvtStream {
 
     constructor(options: BlvtStreamConstructor = {}) {
 
-        let OPTIONS = {
+        const OPTIONS = {
             ...options,
             ...this.ApiMap,
             timestamp: this.timestamp,

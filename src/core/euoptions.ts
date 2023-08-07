@@ -25,7 +25,7 @@ export class EuOptions {
 
         options.isTestNet = false
 
-        let OPTIONS = {
+        const OPTIONS = {
             ...options,
             ...this.ApiMap,
             timestamp: this.timestamp,
